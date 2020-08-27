@@ -37,7 +37,9 @@
 
   <body>
     <script>
+    if (localStorage.getItem("current-color-mode") === null) {
       localStorage.setItem('current-color-mode', 'dark');
+    }
       function applyDarkMode() {
         if (localStorage.getItem("current-color-mode") === "dark") {
           document.body.className += " " + "dark-theme-applied";

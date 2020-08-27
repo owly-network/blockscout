@@ -20,7 +20,7 @@ config :block_scout_web, BlockScoutWeb.Endpoint,
   check_origin: System.get_env("CHECK_ORIGIN") || false,
   http: [port: 4000],
   url: [
-    scheme: System.get_env("BLOCKSCOUT_PROTOCOL") || "https",
+    scheme: System.get_env("BLOCKSCOUT_PROTOCOL") || "http",
     port: 4000,
     host: "explorer.ligerstar.com",
     path: System.get_env("NETWORK_PATH") || "/",
