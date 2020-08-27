@@ -43,8 +43,8 @@ config :block_scout_web, BlockScoutWeb.Counters.BlocksIndexedCounter, enabled: t
 # Configures the endpoint
 config :block_scout_web, BlockScoutWeb.Endpoint,
   url: [
-    scheme: System.get_env("BLOCKSCOUT_PROTOCOL") || "http",
-    host: System.get_env("BLOCKSCOUT_HOST") || "localhost",
+    scheme: System.get_env("BLOCKSCOUT_PROTOCOL") || "https",
+    host: System.get_env("BLOCKSCOUT_HOST") || "explorer.ligerstar.com",
     path: System.get_env("NETWORK_PATH") || "/",
     api_path: System.get_env("API_PATH") || "/"
   ],
@@ -67,17 +67,16 @@ config :block_scout_web, BlockScoutWeb.SocialMedia,
 
 # Configures History
 price_chart_config =
-  if System.get_env("SHOW_PRICE_CHART", "true") != "false" do
-    %{}
-    # %{market: [:price, :market_cap]}
+  if System.get_env("SHOW_PRICE_CHART", "false") != "false" do
+
+    %{market: [:price, :market_cap]}
   else
     %{}
   end
 
 tx_chart_config =
   if System.get_env("SHOW_TXS_CHART", "false") == "true" do
-    %{}
-    # %{transactions: [:transactions_per_day]}
+    %{transactions: [:transactions_per_day]}
   else
     %{}
   end
