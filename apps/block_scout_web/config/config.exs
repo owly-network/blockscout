@@ -68,14 +68,16 @@ config :block_scout_web, BlockScoutWeb.SocialMedia,
 # Configures History
 price_chart_config =
   if System.get_env("SHOW_PRICE_CHART", "true") != "false" do
-    %{market: [:price, :market_cap]}
+    %{}
+    # %{market: [:price, :market_cap]}
   else
     %{}
   end
 
 tx_chart_config =
   if System.get_env("SHOW_TXS_CHART", "false") == "true" do
-    %{transactions: [:transactions_per_day]}
+    %{}
+    # %{transactions: [:transactions_per_day]}
   else
     %{}
   end
